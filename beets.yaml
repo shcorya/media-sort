@@ -1,0 +1,5 @@
+directory: /media/music
+duplicate_action: keep
+plugins: embedart fetchart
+ui:
+    color: no
