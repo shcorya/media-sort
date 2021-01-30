@@ -4,7 +4,7 @@ ENV BEETSDIR=/beets
 ENV TRANSMISSION_SCRIPT_TORRENT_DONE_FILENAME=/sort.sh
 
 COPY beets.yaml /beets/config.yaml
-COPY mnamer.json /mnamer/.mnamer-v2.json
+COPY mnamer.json /mnamer/mnamer-v2.json
 COPY sort.sh /sort.sh
 
 RUN apk add --no-cache python3 && python3 -m ensurepip && python3 -m pip install --upgrade pip &&\

@@ -1,13 +1,16 @@
 #!/bin/sh
-
-for fname in $(find $TR_TORRENT_DIR)
+OUTFILE="/var/tmp/sort.log"
+exec 1>>$OUTFILE 2>&1
+echo "Checking torrent at '$TR_TORRENT_DIR/$TR_TORRENT_NAME'..."
+for fname in $(find "$TR_TORRENT_DIR/$TR_TORRENT_NAME")
 do
 	# check for common music file extensions
 	for music in '.aac' '.aiff' '.alac' '.flac' '.m4a' '.mp3' '.oga' '.ogg' '.wma'
 	do
 		if [ -z "${fname##*$music}" ]
 		then
-			exec beet import -q $TR_TORRENT_DIR
+			echo "Found audio file in $TR_TORRENT_NAME."
+			exec beet import -q "$TR_TORRENT_DIR/$TR_TORRENT_NAME"
 			exit
 		fi
 	done
@@ -18,8 +21,9 @@ do
 		if [ -z "${fname##*$video}" ]
 		then
 			# mnamer moves, not copies, so copy before
-			exec cp -RP $TR_TORRENT_DIR /tmp$TR_TORRENT_DIR
-			exec mnamer -rb --no-guess --no-overwrite --config-path=/mnamer /tmp$TR_TORRENT_DIR
+			echo "Found video file in $TR_TORRENT_NAME."
+			exec cp -RP "$TR_TORRENT_DIR/$TR_TORRENT_NAME" "/tmp/$TR_TORRENT_NAME"
+			exec mnamer -rbv --no-guess --no-overwrite --config-path=/mnamer/mnamer-v2.json "/tmp/$TR_TORRENT_NAME"
 			exit
 		fi
 	done

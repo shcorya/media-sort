@@ -1,4 +1,4 @@
 {
-	"episode-directory": "/media/TV",
-	"movie-directory": "/media/Movies"
+	"episode-directory": "/data/media/TV",
+	"movie-directory": "/data/media/Movies"
 }

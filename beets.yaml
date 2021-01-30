@@ -1,4 +1,4 @@
-directory: /media/Music
+directory: /data/media/Music
 duplicate_action: keep
 plugins: embedart fetchart
 ui:
