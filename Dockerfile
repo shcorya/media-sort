@@ -12,4 +12,8 @@ RUN apk add --no-cache python3 && python3 -m ensurepip && python3 -m pip install
 	pip3 install requests &&\
 	pip3 install mnamer &&\
 	pip3 install https://github.com/beetbox/beets/tarball/master &&\
-	chmod +x /sort.sh
+	chmod +x /sort.sh &&\
+	mkdir -p /media/Movies &&\
+	mkdir -p /media/Music &&\
+	mkdir -p /media/TV &&\
+	chown -R 33:33 /media

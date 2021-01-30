@@ -23,7 +23,7 @@ do
 			# mnamer moves, not copies, so copy before
 			echo "Found video file in $TR_TORRENT_NAME."
 			exec cp -RP "$TR_TORRENT_DIR/$TR_TORRENT_NAME" "/tmp/$TR_TORRENT_NAME"
-			exec mnamer -rbv --no-guess --no-overwrite --config-path=/mnamer/mnamer-v2.json "/tmp/$TR_TORRENT_NAME"
+			exec mnamer -rbv --no-guess --no-overwrite --no-style --config-path=/mnamer/mnamer-v2.json "/tmp/$TR_TORRENT_NAME"
 			exit
 		fi
 	done
