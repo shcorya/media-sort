@@ -1,7 +1,7 @@
 #!/bin/sh
 OUTFILE="/var/tmp/sort.log"
 exec 1>>$OUTFILE 2>&1
-su-exec 33:33 "Running script as user $(id)..."
+echo "Running script as user $(id)..."
 echo "Checking torrent at '$TR_TORRENT_DIR/$TR_TORRENT_NAME'..."
 for fname in $(find "$TR_TORRENT_DIR/$TR_TORRENT_NAME")
 do
@@ -11,7 +11,7 @@ do
 		if [ -z "${fname##*$music}" ]
 		then
 			echo "Found audio file in $TR_TORRENT_NAME."
-			su-exec 33:33 beet import -q "$TR_TORRENT_DIR/$TR_TORRENT_NAME"
+			exec beet import -q "$TR_TORRENT_DIR/$TR_TORRENT_NAME"
 			exit
 		fi
 	done
@@ -23,8 +23,8 @@ do
 		then
 			# mnamer moves, not copies, so copy before
 			echo "Found video file in $TR_TORRENT_NAME."
-			su-exec 33:33 cp -RP "$TR_TORRENT_DIR/$TR_TORRENT_NAME" "/tmp/$TR_TORRENT_NAME"
-			su-exec 33:33 mnamer -rbv --no-guess --no-overwrite --no-style --config-path=/mnamer/mnamer-v2.json "/tmp/$TR_TORRENT_NAME"
+			exec cp -RP "$TR_TORRENT_DIR/$TR_TORRENT_NAME" "/tmp/$TR_TORRENT_NAME"
+			exec mnamer -rbv --no-guess --no-overwrite --no-style --config-path=/mnamer/mnamer-v2.json "/tmp/$TR_TORRENT_NAME"
 			exit
 		fi
 	done
