@@ -3,3 +3,5 @@ duplicate_action: keep
 plugins: embedart fetchart
 ui:
     color: no
+match:
+    strong_rec_thresh: 0.10
