@@ -1,4 +1,5 @@
 {
-	"episode-directory": "/media/TV",
-	"movie-directory": "/media/Movies"
+	"episode_directory": "/media/TV/{series}",
+	"movie_directory": "/media/Movies/{name}",
+	"language": "eng"
 }
