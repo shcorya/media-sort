@@ -1,3 +1,4 @@
+library: /beets/library.db
 directory: /media-storage/Music
 duplicate_action: keep
 plugins: embedart fetchart
