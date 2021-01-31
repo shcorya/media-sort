@@ -15,7 +15,4 @@ RUN apk add --no-cache python3 su-exec && python3 -m ensurepip && python3 -m pip
 	chmod +x /sort.sh &&\
 	mkdir -p /media-storage/Movies &&\
 	mkdir -p /media-storage/Music &&\
-	mkdir -p /media-storage/TV &&\
-	chown -R 33:33 /media-storage &&\
-	chown -R 33:33 /beets &&\
-	chown -R 33:33 /mnamer
+	mkdir -p /media-storage/TV
